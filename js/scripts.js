@@ -1,11 +1,13 @@
 var wordOrder = function(string) {
 
-  var stringArr = string.split(" ");
-  // var counter = stringArr.length;
+  var words = string.toLowerCase().split(" ");
   var uniqueWords = [];
 
-  uniqueWords = uniqueWords.push(stringArr);
+  words.forEach(function(word) {
+    if ( uniqueWords.indexOf(word) === -1 ) {
+      uniqueWords.push(word);
+    }
+  });
 
   return uniqueWords;
-
 }
