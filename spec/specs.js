@@ -9,10 +9,14 @@ describe("wordOrder", function() {
   });
 
   it("only returns words that are unique", function(){
-    expect(wordOrder("this this is that that")).to.eql(["this","is","that"]);
+    expect(wordOrder("this this under")).to.eql(["this","under"]);
   });
 
   it("ignores case from user's input", function(){
-    expect(wordOrder("This This Is THAt tHat")).to.eql(["this", "is", "that"]);
+    expect(wordOrder("This This under UNDER")).to.eql(["this", "under"]);
+  });
+
+  it("sorts unique words by how often they appear in said string", function(){
+    expect(wordOrder("one two two three three three")).to.eql(["three", "two", "one"]);
   });
 });
