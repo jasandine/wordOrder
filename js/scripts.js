@@ -9,14 +9,19 @@ var wordOrder = function(string) {
     if ( uniqueWords.indexOf(word) === -1 ) {
       uniqueWords.push(word);
       uniqueWordOccurrence.push(1);
+      sortedWords.push(word);
+      console.log(sortedWords);
     } else {
       var position = uniqueWords.indexOf(word);
+      var highestOccurrence = Math.max.apply(null,uniqueWordOccurrence);
       uniqueWordOccurrence[position]++;
-      // // var highestOccurrence = uniqueWordOccurrence
-      //
-      // if ( uniqueWordOccurrence > uniqueWordOccurrence ) {
-      //   uniqueWords = uniqueWords.sort();
-      // }
+      if ( uniqueWordOccurrence[position] > highestOccurrence ) {
+// debugger;
+        console.log(word);
+        sortedWords.splice(uniqueWordOccurrence[position],1);
+        var x = sortedWords.unshift(word);
+        console.log(sortedWords);
+      }
     }
   });
 
